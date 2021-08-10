@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="modelo.Productos"%>
 <%@page import="java.*"%>
-<%@page import="java.*"%>
+<%@page import="com.mysql.jdbc.Driver"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -40,6 +40,8 @@
                             <td> <%= resultado.get(i).getProd() %></<td>
                             <td> <%= resultado.get(i).getDescripción() %></<td>
                             <td> <%= resultado.get(i).getPrecio() %></<td>
+                            <td> <a href=""</td> 
+                            <td> <a href=""</td>
                        </tr>
                        <%
                        }
