@@ -19,7 +19,7 @@
                     <thead>
                         <tr>
                             <th>Id</th><!-- comment -->
-                            <th>Prod</th><!-- comment -->
+                            <th>Productos</th><!-- comment -->
                             <th>Descripción</th><!-- comment -->
                             <th>Precio</th><!-- comment -->
                             <th>Modificar</th><!-- comment -->
