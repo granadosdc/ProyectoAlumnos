@@ -4,6 +4,8 @@
     Author     : cielo
 --%>
 
+<%@page import="modelo.ProductosDAO"%>
+<%@page import="modelo.Productos"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,19 @@
     <link href="css/estilosnuevo.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+    <%
+        String path = request.getContextPath();
+        String id = request.getParameter("id");
+        int mid;
+        mid = Integer.parseInt(id);
+        
+        Productos resultado = null;
+        ProductosDAO producto = new ProductosDAO();
+        resultado = producto.mostrarProducto(mid);
+     %> <p><%out.print(resultado.getProd()); %></p>  
+    <%
+        
+    %>
         <div class="container">
             <h3 class="text-center">Bienvenidos al Sistema</h3>
             <div class="row">
@@ -25,19 +40,19 @@
                     </div>
                     <div class="mb-3">
                       <label for="id" class="form-label"></label>
-                      <input type="hidden" class="form-control" id="id" name="id" aria-describedby="email">
+                      <input type="hidden" class="form-control" id="id" name="id" aria-describedby="email" value=<%out.print(resultado.getId()); %>>
                     </div>
                     <div class="mb-3">
                       <label for="producto" class="form-label">Producto</label>
-                      <input type="text" class="form-control" id="producto" name="producto" aria-describedby="email">
+                      <input type="text" class="form-control" id="producto" name="producto" aria-describedby="email" value=<%out.print(resultado.getProd()); %>>
                     </div>
                     <div class="mb-3">
                       <label for="descripción" class="form-label">Descripción</label>
-                      <input type="text" class="form-control" id="descripción" name="descripción">
+                      <input type="text" class="form-control" id="descripción" name="descripción" value=<%out.print(resultado.getDescripción()); %>>
                     </div>
                     <div class="mb-3">
                       <label for="precio" class="form-label">Precio</label>
-                      <input type="text" class="form-control" id="precio" name="precio">
+                      <input type="text" class="form-control" id="precio" name="precio" value=<%out.print(resultado.getPrecio()); %>>
                     </div>
                     <button type="submit" class="btn btn-primary">Modificar</button>
                     </div>
