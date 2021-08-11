@@ -1,17 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package config;
-
 import java.sql.*;
 
-
-/**
- *
- * @author cielo
- */
 public class ConexionPro {
     public String driver = "com.mysql.cj.jdbc.Driver";
     public Connection getConnection(){
@@ -24,5 +13,22 @@ public class ConexionPro {
         System.out.println(e.toString());
     }
     return conexion;
+    }
+    public static void main (String[] args) throws SQLException{
+    Connection conexion = null;
+    ConexionPro con = new ConexionPro();
+    conexion = con.getConnection();
+    PreparedStatement ps;
+    ResultSet rs;
+        ps = conexion.prepareStatement("SELECT * FROM productos");
+        rs = ps.executeQuery();
+        while(rs.next()){
+            int id = rs.getInt("id");
+            String prod = rs.getString("prod");
+            String descripción = rs.getString("descripción");
+            Float Precio = rs.getFloat("Precio");
+            System.out.println("Id: "+ id +" Productos: "+ prod +"Descripción: "+ descripción + "Precio: "+ Precio);
+        }
+    
     }
 }
